@@ -56,8 +56,10 @@ server.post('/test', upload.none(), (req, res) => {
 
     arrObj2.forEach((strObj2) => {
         const key2 = Object.keys(strObj2); 
-        const val2 = Object.values(strObj2);
-        
+        //const val2 = Object.values(strObj2);
+        // console.log(key2);
+        // console.log(val2);
+
         // console.log(counter, ': строка-вторичный объект', strObj2, 'в виде массива', key2);
         // 0 : строка-вторичный объект { work: 'ingener', status: 'busy' } в виде массива [ 'work', 'status' ]
         // 1 : строка-вторичный объект { work: 'art', status: 'free' } в виде массива [ 'work', 'status' ]
@@ -67,15 +69,13 @@ server.post('/test', upload.none(), (req, res) => {
                     console.log('Ошибка! Количество вторичных полей в строке', counter, 'не соответсвует заданному!');
                 } else {
                     key2.forEach((Element) => {
-                        //console.log(Element);
+                        //console.log('элемент', Element); - имена ключей
+                        //console.log('strObj2.Element', strObj2[Element]); - значения ключей
                         if ((Element !== 'work') && (Element !== 'status')) {
                                     console.log('Ошибка! В строке', counter, 'неправильные внутренние ключи:', Element);
-                                } else val2.forEach((valObj2) => {
-                                    console.log(val2);
-                                    if (typeof(valObj2) !== 'string') {
-                                        console.log('Ошибка! В строке', counter, 'недопустимое значение:', valObj2);
-                                    }
-                                })                                
+                                } else if (typeof(strObj2[Element]) !== 'string' ) {
+                                        console.log('Ошибка! В строке', counter, 'недопустимое значение:', strObj2[Element]);
+                                        }                        
                 })};
         counter++ ;
     })
