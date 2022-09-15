@@ -59,6 +59,7 @@ server.post('/test', upload.none(), (req, res) => {
     if (typeof val2[0] !== 'string') { 
         console.log('Ошибка: поле', key2[0], 'содержит не строчное значение!'); 
     };
+
     if (typeof val2[1] !== 'string') { 
         console.log('Ошибка: поле', key2[1], 'содержит не строчное значение!'); 
     };
@@ -68,13 +69,12 @@ server.post('/test', upload.none(), (req, res) => {
     res.end();
 });
 
-
-
 // const obj = {
-//             bio: {
-//                 name: 'Alex', //String
-//                 surname: 'Borz' //String
-//             }
-//         }
+//              bio: {
+//                  { work: 'ingener', status: 'busy' },
+//                  { work: 'art', status: 'free' },
+//                  { work: 'driver', status: 'dolboeb, age: 28 }
+//              }
+//          }
 
 server.listen(3000);
