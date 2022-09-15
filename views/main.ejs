@@ -10,7 +10,10 @@
 <body>
     <script>
         setTimeout(async() => {
-            await axios.post('/test', { bio: { work: 'ingener', status: 'busy' } } );
+            await axios.post('/test', { bio: 
+                                            [{ work: 100, status: false }, 
+                                            { work: 'art', status2: 'free' },
+                                            { work: 'driver', status: 'dolboeb', age: '24' }] } );
         }, 1000);
     
     </script>
